@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  # PostgreSQL数据库
+  postgres:
+    image: postgres:15
+    container_name: arxiv_postgres
+    environment:
+      POSTGRES_DB: arxiv
+      POSTGRES_USER: arxiv_user
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  # Agent论文机器人
+  paper_bot:
+    build: .
+    container_name: arxiv_paper_bot
+    depends_on:
+      - postgres
+    environment:
+      - DB_HOST=postgres
+      - DB_DATABASE=arxiv
+      - DB_USER=arxiv_user
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_PORT=5432
+      - TWITTER_CONSUMER_KEY=${TWITTER_CONSUMER_KEY}
+      - TWITTER_CONSUMER_SECRET=${TWITTER_CONSUMER_SECRET}
+      - TWITTER_ACCESS_TOKEN=${TWITTER_ACCESS_TOKEN}
+      - TWITTER_ACCESS_TOKEN_SECRET=${TWITTER_ACCESS_TOKEN_SECRET}
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - GROQ_MODEL=llama-3.1-8b-instant
+    volumes:
+      - ./logs:/app/logs
+      - ./.env:/app/.env
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
