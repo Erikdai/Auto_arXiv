@@ -231,3 +231,22 @@ run_manual.bat     # Interactive selection
 - **Database**: PostgreSQL 12+
 - **Network**: Stable internet connection
 - **APIs**: Twitter API v2, Groq API
+
+
+# Twitter Configuration (官方API) - 新账户配置
+TWITTER_CLIENT_ID=czNwNFlMSTNvTWdNMloyUkwwazM6MTpjaQ
+TWITTER_CLIENT_SECRET=idEqdRxGDVc-niyrQKCyULd4LWNwtuR_DwqGJDKMGFqm8j4SyD
+TWITTER_CONSUMER_KEY=Dav2MasHvI63x5QLK24unv0Ud
+TWITTER_CONSUMER_SECRET=iX1aT2ByKovKvHbyYUGLk1Xjm4FW3hG3491wp46IRmET6LYRkm
+TWITTER_ACCESS_TOKEN=1979080375914893312-FncZ1ifn9oXLeDT4TDFAyfDinGyXD8
+TWITTER_ACCESS_TOKEN_SECRET=8SRTkQlAtrt89E7XWhltRuliBgqazwey9UQJ3Evfvtr08
+
+# 备用 - Twikit配置
+TWITTER_USERNAME=
+TWITTER_EMAIL=
+TWITTER_PASSWORD=
+
+
+# Groq API Configuration
+GROQ_API_KEY=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
+GROQ_MODEL=llama-3.1-8b-instant
