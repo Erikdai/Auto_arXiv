@@ -225,7 +225,3 @@ run_manual.bat     # Interactive selection
 - **Database**: PostgreSQL 12+
 - **Network**: Stable internet connection
 - **APIs**: Twitter API v2, Groq API
-
-## License
-
-MIT License
