@@ -32,6 +32,7 @@ brew services start postgresql
 CREATE DATABASE arxiv;
 CREATE USER arxiv_user WITH PASSWORD 'your_password';
 GRANT ALL PRIVILEGES ON DATABASE arxiv TO arxiv_user;
+\q or Ctrl+C exit
 ```
 
 ### Step 2: Setup Python Environment
